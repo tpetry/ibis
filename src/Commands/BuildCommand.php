@@ -157,6 +157,7 @@ class BuildCommand extends Command
         }
 
         $html = str_replace('<h2>', '[break]<h2>', $html);
+        $html = preg_replace("/<blockquote>\s+<p>\{box=(.+?)\}\{(.+?)\}/", '<blockquote class="box-$1"><p><div class="box-title">$2</div>', $html);
         $html = str_replace("<blockquote>\n<p>{notice}", "<blockquote class='notice'><p><strong>Notice:</strong>", $html);
         $html = str_replace("<blockquote>\n<p>{warning}", "<blockquote class='warning'><p><strong>Warning:</strong>", $html);
         $html = str_replace("<blockquote>\n<p>{quote}", "<blockquote class='quote'><p>", $html);
